@@ -11,8 +11,8 @@ class GymMartLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("GymMart"),
-        backgroundColor: Color.fromARGB(255, 70, 188, 248),
+        
+        backgroundColor: const Color.fromARGB(255, 70, 188, 248),
       ),
       body: const LogginBody(),
     );
@@ -28,45 +28,156 @@ class LogginBody extends StatefulWidget {
 
 class _LogginBodyState extends State<LogginBody> {
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView( // prevents overflow on small screens
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+  @override
+Widget build(BuildContext context) {
+  return Center(
+    child: SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
 
-            // REGISTER NOW Text
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 25, 0, 25),
-              child: Text(
-                "REGISTER NOW...",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 36, // reduce font if needed
-                  color: Color.fromARGB(255, 70, 188, 248),
-                  fontWeight: FontWeight.bold,
+          // 🔵 GymMart text (centered)
+          const Text(
+            "GymMart",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 42,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 70, 188, 248),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // 🟦 Card
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: Card(
+              elevation: 8,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      "REGISTER NOW...",
+                      style: TextStyle(
+                        fontSize: 32,
+                        color: Color.fromARGB(255, 70, 188, 248),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+
+                    Row(
+                      children: const [
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              labelText: 'First Name',
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Last Name',
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 15,),
+
+                    Column(
+
+                      
+
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            border: OutlineInputBorder()
+                          ),
+
+                          
+
+                        )
+                      ],
+
+                    ),
+
+                         SizedBox(height: 15,),
+
+                    Column(
+
+                      
+
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            border: OutlineInputBorder()
+                          ),
+
+                          
+
+                        )
+                      ],
+
+                    ),
+
+                    SizedBox(height: 15,),
+
+                        
+
+                    Column(
+
+                      
+
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            border: OutlineInputBorder()
+                          ),
+
+                          
+
+                        )
+                      ],
+
+                    ),
+
+                    SizedBox(height: 15,),
+
+                    SizedBox(
+                      width: 200,
+                      child: FilledButton(onPressed: (){}, child: Text("Register"),
+                      style: FilledButton.styleFrom(backgroundColor: const Color.fromARGB(255, 18, 136, 195),),
+                      
+                      ),
+                    ),
+                    
+
+
+                  ],
                 ),
               ),
             ),
-
-            // First Name TextField
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-              child: TextField(
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: 'Enter First Name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-
-            // You can add more TextFields or buttons here
-
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }
+
+  }
+
