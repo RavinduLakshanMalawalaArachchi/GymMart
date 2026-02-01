@@ -28,7 +28,7 @@ class GymMartLogin extends StatelessWidget {
 
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-           
+            child: Container(color: Colors.black.withOpacity(0.1)),
           ),
           // 3. The Login Card
           Center(
@@ -86,7 +86,7 @@ class GymMartLogin extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent,
+                            backgroundColor: const Color.fromARGB(255, 0, 76, 153),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
