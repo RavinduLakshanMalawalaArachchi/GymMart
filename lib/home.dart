@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -28,9 +32,9 @@ class _MyHomeState extends State<MyHome> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                const Color.fromARGB(255, 23, 92, 148),
-                const Color.fromARGB(255, 0, 135, 252),
-                const Color.fromARGB(255, 30, 136, 229),
+                const Color.fromARGB(255, 125, 131, 136),
+                const Color.fromARGB(255, 68, 70, 71),
+                const Color.fromARGB(255, 2, 2, 2),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -41,18 +45,24 @@ class _MyHomeState extends State<MyHome> {
           "Metal Art",
           style: TextStyle(
             fontSize: 32,
-            color: Colors.white,
-            fontWeight: FontWeight.w900,
+            color: Colors.blueAccent, // match the button icons
+            fontWeight: FontWeight.bold,
             letterSpacing: 1.2,
             shadows: [
               Shadow(
-                color: Colors.black26,
+                color: Color.fromARGB(100, 0, 76, 153), // subtle blue shadow
                 offset: Offset(2, 2),
                 blurRadius: 4,
+              ),
+              Shadow(
+                color: Colors.black38, // adds depth
+                offset: Offset(1, 1),
+                blurRadius: 2,
               ),
             ],
           ),
         ),
+
         actions: [
           Container(
             margin: EdgeInsets.only(right: 12),
@@ -89,16 +99,17 @@ class MyHomeBody extends StatelessWidget {
           children: [
             Card(
               elevation: 12,
-              shadowColor: Colors.blue.withOpacity(0.5),
+              shadowColor: Colors.blueAccent.withOpacity(0.6),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      const Color.fromARGB(255, 23, 92, 148),
-                      const Color.fromARGB(255, 30, 136, 229),
+                    colors: const [
+                      Colors.black,
+                      Color.fromARGB(255, 0, 76, 153), // blue
+                      Colors.black,
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -106,8 +117,8 @@ class MyHomeBody extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.blue.withOpacity(0.3),
-                      blurRadius: 15,
+                      color: Colors.blueAccent.withOpacity(0.4),
+                      blurRadius: 16,
                       offset: Offset(0, 8),
                     ),
                   ],
@@ -117,6 +128,7 @@ class MyHomeBody extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      // Dashboard
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.symmetric(
@@ -128,16 +140,29 @@ class MyHomeBody extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Text(
-                          "Home",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.5,
-                            color: Colors.white,
-                          ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(
+                              Icons.dashboard,
+                              color: Colors.blueAccent,
+                              size: 26,
+                            ),
+                            SizedBox(height: 6),
+                            Text(
+                              "Dashboard",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.5,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+
+                      // Explore
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.symmetric(
@@ -149,16 +174,29 @@ class MyHomeBody extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Text(
-                          "Category",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.5,
-                            color: Colors.white,
-                          ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(
+                              Icons.explore,
+                              color: Colors.blueAccent,
+                              size: 26,
+                            ),
+                            SizedBox(height: 6),
+                            Text(
+                              "Explore",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.5,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+
+                      // Orders
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.symmetric(
@@ -170,16 +208,29 @@ class MyHomeBody extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Text(
-                          "Cart",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.5,
-                            color: Colors.white,
-                          ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(
+                              Icons.shopping_bag,
+                              color: Colors.blueAccent,
+                              size: 26,
+                            ),
+                            SizedBox(height: 6),
+                            Text(
+                              "Orders",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.5,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+
+                      // Profile
                       TextButton(
                         style: TextButton.styleFrom(
                           padding: EdgeInsets.symmetric(
@@ -191,14 +242,25 @@ class MyHomeBody extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Text(
-                          "Account",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.5,
-                            color: Colors.white,
-                          ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(
+                              Icons.person,
+                              color: Colors.blueAccent,
+                              size: 26,
+                            ),
+                            SizedBox(height: 6),
+                            Text(
+                              "Profile",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.5,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -206,6 +268,7 @@ class MyHomeBody extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: 50),
             Card(
               elevation: 8,
@@ -213,7 +276,7 @@ class MyHomeBody extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
-              color: const Color.fromARGB(255, 228, 233, 236),
+              color: const Color.fromARGB(255, 255, 255, 255),
               child: Container(
                 padding: EdgeInsets.all(16),
                 child: Column(
@@ -247,7 +310,48 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/1.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 247",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        23,
+                                        92,
+                                        148,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 2,850",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        21,
+                                        180,
+                                        15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -269,7 +373,48 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/2.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 583",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        23,
+                                        92,
+                                        148,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 4,200",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        21,
+                                        180,
+                                        15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -291,7 +436,48 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/3.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 129",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        23,
+                                        92,
+                                        148,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 3,150",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        21,
+                                        180,
+                                        15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -313,7 +499,48 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/4.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 891",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        23,
+                                        92,
+                                        148,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 5,750",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        21,
+                                        180,
+                                        15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -335,7 +562,48 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/5.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 456",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        23,
+                                        92,
+                                        148,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 1,999",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        21,
+                                        180,
+                                        15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -345,6 +613,7 @@ class MyHomeBody extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: 30),
             Card(
               elevation: 8,
@@ -352,7 +621,7 @@ class MyHomeBody extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
-              color: const Color.fromARGB(255, 195, 211, 205),
+              color: const Color.fromARGB(255, 255, 255, 255),
               child: Container(
                 padding: EdgeInsets.all(16),
                 child: Column(
@@ -386,7 +655,102 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/1.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 762",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        54,
+                                        3,
+                                        65,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 6,500",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: Card(
+                            elevation: 4,
+                            shadowColor: const Color.fromARGB(
+                              255,
+                              4,
+                              40,
+                              70,
+                            ).withOpacity(0.5),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 10,
+                              ),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 928",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        54,
+                                        3,
+                                        65,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 7,250",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -408,7 +772,43 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/2.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 551",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        54,
+                                        3,
+                                        65,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 3,890",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -430,51 +830,43 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/3.jpg'),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Expanded(
-                          child: Card(
-                            elevation: 4,
-                            shadowColor: const Color.fromARGB(
-                              255,
-                              4,
-                              40,
-                              70,
-                            ).withOpacity(0.5),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 10,
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 673",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        54,
+                                        3,
+                                        65,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 8,100",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              child: Image.asset('asset/4.jpg'),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Expanded(
-                          child: Card(
-                            elevation: 4,
-                            shadowColor: const Color.fromARGB(
-                              255,
-                              4,
-                              40,
-                              70,
-                            ).withOpacity(0.5),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 10,
-                              ),
-                              child: Image.asset('asset/5.jpg'),
                             ),
                           ),
                         ),
@@ -484,6 +876,7 @@ class MyHomeBody extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: 30),
             Card(
               elevation: 8,
@@ -491,7 +884,7 @@ class MyHomeBody extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
-              color: const Color.fromARGB(255, 221, 202, 210),
+              color: const Color.fromARGB(255, 255, 255, 255),
               child: Container(
                 padding: EdgeInsets.all(16),
                 child: Column(
@@ -525,7 +918,43 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/1.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 185",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        70,
+                                        3,
+                                        8,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 5,200",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -547,7 +976,43 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/2.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 492",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        70,
+                                        3,
+                                        8,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 6,850",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -569,7 +1034,43 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/3.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 736",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        70,
+                                        3,
+                                        8,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 4,450",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -591,7 +1092,43 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/4.jpg'),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 829",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        70,
+                                        3,
+                                        8,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 7,600",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -613,7 +1150,44 @@ class MyHomeBody extends StatelessWidget {
                                 horizontal: 20,
                                 vertical: 10,
                               ),
-                              child: Image.asset('asset/5.jpg'),
+
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 8),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      24,
+                                    ), // match Card radius
+                                    child: Image.asset(
+                                      'asset/1.jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Art 367",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        70,
+                                        3,
+                                        8,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    "Rs. 3,250",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color.fromARGB(255, 0, 2, 0),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
