@@ -123,7 +123,12 @@ class GymMartLogin extends StatelessWidget {
                           "Sign Up",
                           style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                         ),
+
                       ),
+
+                      SizedBox(height: 20),
+                      
+                      
                     ],
                   ),
                 ),
