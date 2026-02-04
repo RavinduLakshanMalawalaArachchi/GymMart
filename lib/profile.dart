@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ShippingAddressesPage.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -25,7 +26,7 @@ class ProfilePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            
+
             // Profile Section
             Center(
               child: Column(
@@ -36,7 +37,10 @@ class ProfilePage extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(color: const Color.fromARGB(255, 0, 76, 153), width: 4),
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 0, 76, 153),
+                            width: 4,
+                          ),
                         ),
                         child: const CircleAvatar(
                           radius: 70,
@@ -62,7 +66,7 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  
+
                   // Name
                   const Text(
                     "Alex Sterling",
@@ -73,24 +77,32 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  
+
                   // Email
                   Text(
                     "alex.sterling@metalmart.com",
-                    style: TextStyle(
-                      color: Colors.grey.shade600,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: Colors.grey.shade600, fontSize: 16),
                   ),
                   const SizedBox(height: 15),
-                  
+
                   // Gold Member Badge
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 10,
+                    ),
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 0, 76, 153).withOpacity(0.1),
+                      color: const Color.fromARGB(
+                        255,
+                        0,
+                        76,
+                        153,
+                      ).withOpacity(0.1),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: const Color.fromARGB(255, 0, 76, 153), width: 1),
+                      border: Border.all(
+                        color: const Color.fromARGB(255, 0, 76, 153),
+                        width: 1,
+                      ),
                     ),
                     child: const Text(
                       "GOLD MEMBER",
@@ -105,9 +117,9 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 40),
-            
+
             // Activity Section
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
@@ -121,23 +133,23 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            
+
             _buildMenuItem(
               icon: Icons.inventory_2_outlined,
               title: "My Orders",
               color: const Color.fromARGB(255, 0, 76, 153),
               onTap: () {},
             ),
-            
+
             _buildMenuItem(
               icon: Icons.favorite_outline,
               title: "Saved Favorites",
               color: const Color.fromARGB(255, 0, 76, 153),
               onTap: () {},
             ),
-            
+
             const SizedBox(height: 30),
-            
+
             // Account Settings Section
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
@@ -151,23 +163,30 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            
+
             _buildMenuItem(
               icon: Icons.location_on_outlined,
               title: "Shipping Address",
               color: Colors.grey.shade400,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ShippingAddressesPage(),
+                  ),
+                );
+              },
             ),
-            
+
             _buildMenuItem(
               icon: Icons.credit_card_outlined,
               title: "Payment Methods",
               color: Colors.grey.shade400,
               onTap: () {},
             ),
-            
+
             const SizedBox(height: 30),
-            
+
             // Support Section
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
@@ -184,7 +203,6 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
-      
     );
   }
 
@@ -231,5 +249,4 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
-
 }
